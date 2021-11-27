@@ -1,7 +1,8 @@
 ## pattern
-#
+# Поведенческий. 
 # Пораждающий. Строитель (Builder)
-``` package com.example.myapplication
+``` 
+package com.example.myapplication
 
 class Borrower(private val email: String,
                private var firstName: String = "",
@@ -23,4 +24,6 @@ class Borrower(private val email: String,
 fun main (args: Array<String>) {
     val borrower = Borrower.ShortTimeBorrowerBuilder("email@email.ru").firstName("Name").build()
 }
-#
+```
+
+# Структурный.
