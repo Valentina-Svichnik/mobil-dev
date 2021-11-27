@@ -1,6 +1,6 @@
-## pattern
-# Поведенческий. 
-# Пораждающий. Строитель (Builder)
+# Patterns
+## Поведенческий. 
+## Пораждающий. Строитель (Builder)
 ``` 
 package com.example.myapplication
 
@@ -26,4 +26,4 @@ fun main (args: Array<String>) {
 }
 ```
 
-# Структурный.
+## Структурный.
