@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="menu_size">56dp</dimen>
+    <dimen name="img_size">40dp</dimen>
+    <dimen name="like_size">24dp</dimen>
+    <dimen name="ind_20">20dp</dimen>
+    <dimen name="ind_16">16dp</dimen>
+    <dimen name="ind_12">12dp</dimen>
+    <dimen name="ind_8">8dp</dimen>
+    <dimen name="ind_4">4dp</dimen>
+</resources>

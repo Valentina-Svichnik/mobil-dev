@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+   <androidx.constraintlayout.widget.ConstraintLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:background="@color/colorPrimary"
+       android:paddingVertical="@dimen/ind_16"
+       android:paddingHorizontal="@dimen/ind_8">
+
+       <ImageButton
+           android:id="@+id/back"
+           android:layout_width="@dimen/img_size"
+           android:layout_height="@dimen/img_size"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toTopOf="parent"
+           android:background="@drawable/ic_back"
+           />
+
+       <TextView
+           android:id="@+id/persons"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginStart="@dimen/like_size"
+           android:layout_marginTop="@dimen/ind_8"
+           android:text="Личности"
+           android:textColor="@color/white"
+           app:layout_constraintStart_toEndOf="@+id/back"
+           app:layout_constraintTop_toTopOf="parent"
+           android:textSize="@dimen/ind_20"/>
+
+   </androidx.constraintlayout.widget.ConstraintLayout>
+
+   <androidx.recyclerview.widget.RecyclerView
+       android:id="@+id/recycle_view"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       tools:listitem="@layout/activity_main"/>
+
+</LinearLayout >

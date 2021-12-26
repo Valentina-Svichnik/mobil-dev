@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="@dimen/ind_8">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/card"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray"
+        android:paddingHorizontal="@dimen/ind_16"
+        android:paddingVertical="@dimen/ind_12">
+
+        <ImageView
+            android:id="@+id/avatar"
+            android:layout_width="@dimen/img_size"
+            android:layout_height="@dimen/img_size"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_launcher_foreground"/>
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/ind_16"
+            android:text="Name"
+            app:layout_constraintStart_toEndOf="@+id/avatar"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textColor="@color/name_color"
+            style="@style/MainText"/>
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0000-0000"
+            app:layout_constraintTop_toBottomOf="@+id/name"
+            app:layout_constraintStart_toEndOf="@+id/avatar"
+            android:layout_marginStart="@dimen/ind_16"
+            android:textColor="@color/date_color"
+            style="@style/DateText"/>
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="description"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/avatar"
+            android:layout_marginTop="@dimen/ind_20"
+            android:textColor="@color/text_color"
+            style="@style/MainText"/>
+
+        <TextView
+            android:id="@+id/gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/description"
+            android:text="gender"
+            style="@style/GenderText"
+            android:textColor="@color/gender_color"
+            android:layout_marginTop="@dimen/ind_8"/>
+
+        <ImageButton
+            android:id="@+id/like"
+            android:layout_width="@dimen/like_size"
+            android:layout_height="@dimen/like_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/description"
+            android:layout_marginTop="@dimen/ind_4"
+            android:background="@drawable/ic_like"
+            />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
