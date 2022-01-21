@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="rwPadding">10dp</dimen>
+    <dimen name="itemPadding">4dp</dimen>
+    <dimen name="topPadding">16dp</dimen>
+    <dimen name="textSize">20sp</dimen>
+</resources>
