@@ -5,11 +5,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.lesson6.R
+import com.example.lesson6.db.NodeViewModel
 import kotlinx.android.synthetic.main.fragment_list.view.*
 
 class ListFragment : Fragment() {
+
+    private lateinit var mNodeViewModel: NodeViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -19,8 +25,23 @@ class ListFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_list, container, false)
 
+        // Recyclerview
+        val adapter = ListAdapter()
+        val recyclerView = view.recycleview
+        recyclerView.adapter = adapter
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
+        // NodeViewModel
+        mNodeViewModel = ViewModelProvider(this).get(NodeViewModel::class.java)
+        mNodeViewModel.readAllData.observe(
+            getViewLifecycleOwner(),
+            Observer { node ->
+                adapter.setData(node)
+            }
+        )
+
         view.floatingActionButton.setOnClickListener {
-            findNavController().navigate((R.id.action_listFragment_to_addFragment))
+            findNavController().navigate(R.id.action_listFragment_to_addFragment)
         }
         return view
     }

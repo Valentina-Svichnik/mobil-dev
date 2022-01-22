@@ -4,17 +4,19 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 
 @Database(entities = [Node::class], version = 1, exportSchema = false)
+//@TypeConverters(Converters::class)
 abstract class NodeDataBase : RoomDatabase() {
     abstract fun nodeDao(): NodeDAO
 
     companion object {
         @Volatile
-        private var instance: NodeDataBase? = null
+        private var INSTANCE: NodeDataBase? = null
 
         fun getDatabase(context: Context): NodeDataBase {
-            val tempInstance = instance
+            val tempInstance = INSTANCE
             if (tempInstance != null) {
                 return tempInstance
             }
@@ -24,7 +26,7 @@ abstract class NodeDataBase : RoomDatabase() {
                     NodeDataBase::class.java,
                     "node_database"
                 ).build()
-                instance = instance
+                INSTANCE = instance
                 return instance
             }
         }

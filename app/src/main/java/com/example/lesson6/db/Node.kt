@@ -8,5 +8,11 @@ import androidx.room.PrimaryKey
 data class Node(
     @PrimaryKey(autoGenerate = true) val id: Int,
     @ColumnInfo(name = "value") val value: String,
-    @ColumnInfo(name = "nodes") var nodes: String
+//    @ColumnInfo(name = "nodes") var nodes: String
 )
+
+//data class Node(
+//    @PrimaryKey(autoGenerate = true)
+//    val id: Int,
+//    val value: String
+//)
