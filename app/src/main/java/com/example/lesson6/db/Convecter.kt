@@ -1,6 +1,7 @@
 package com.example.lesson6.db
 
 import androidx.room.TypeConverter
+import com.example.lesson6.model.Node
 import com.google.gson.Gson
 
 class Converter {

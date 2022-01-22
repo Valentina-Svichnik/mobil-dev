@@ -3,6 +3,7 @@ package com.example.lesson6.db
 import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.example.lesson6.viewmodel.NodeViewModel
 import java.lang.IllegalArgumentException
 
 class NodeViewModelFactory(private var application: Application) : ViewModelProvider.Factory {

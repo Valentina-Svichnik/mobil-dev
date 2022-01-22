@@ -3,16 +3,17 @@ package com.example.lesson6.fragments.list
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.lesson6.R
-import com.example.lesson6.db.Node
+import com.example.lesson6.model.Node
 import kotlinx.android.synthetic.main.nodes.view.*
 
 class ListAdapter : RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
 
     private var nodeList = emptyList<Node>()
 
-    class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) { }
+    class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         return MyViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.nodes, parent, false))
@@ -25,6 +26,11 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = nodeList[position]
         holder.itemView.textNode.text = "id: " + currentItem.id.toString() + " | value: " + currentItem.value
+
+        holder.itemView.rowLayout.setOnClickListener {
+            val action = ListFragmentDirections.actionListFragmentToUpdateFragment(currentItem)
+            holder.itemView.findNavController().navigate(action)
+        }
     }
 
     fun setData(node: List<Node>) {
