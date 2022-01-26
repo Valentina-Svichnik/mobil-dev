@@ -4,18 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="16dp"
+    android:layout_marginHorizontal="8dp"
     android:id="@+id/rowLayout">
-
-    <LinearLayout
-        android:id="@+id/node"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/itemPadding"
-        android:layout_marginHorizontal="@dimen/itemPadding"
-        android:background="@color/white"
-        android:orientation="vertical"
-        android:layout_margin="10dp"
-        tools:ignore="MissingConstraints">
 
         <TextView
             android:id="@+id/textNode"
@@ -25,9 +15,9 @@
             android:layout_marginStart="@dimen/itemPadding"
             android:textColor="@color/black"
             android:textSize="@dimen/textSize"
-            android:padding="10dp"
-            />
+            android:padding="14dp"
+            android:background="@color/white"
+            tools:ignore="MissingConstraints" />
 
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

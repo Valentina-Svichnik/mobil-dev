@@ -27,14 +27,29 @@
     </fragment>
     <fragment
         android:id="@+id/updateFragment"
-        android:name="com.example.lesson6.fragments.update.UpdateFragment"
-        android:label="Update"
+        android:name="com.example.lesson6.fragments.update.ParentFragment"
+        android:label="Nodes"
         tools:layout="@layout/fragment_update" >
         <argument
-            android:name="currentNode"
+            android:name="currentNodeParent"
             app:argType="com.example.lesson6.model.Node" />
         <action
             android:id="@+id/action_updateFragment_to_listFragment"
             app:destination="@id/listFragment" />
+        <action
+            android:id="@+id/action_updateFragment_to_childrenFragment"
+            app:destination="@id/childrenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/childrenFragment"
+        android:name="com.example.lesson6.fragments.update.ChildrenFragment"
+        android:label="Children"
+        tools:layout="@layout/fragment_children" >
+        <argument
+            android:name="currentNodeChildren"
+            app:argType="com.example.lesson6.model.Node" />
+        <action
+            android:id="@+id/action_childrenFragment_to_updateFragment"
+            app:destination="@id/updateFragment" />
     </fragment>
 </navigation>

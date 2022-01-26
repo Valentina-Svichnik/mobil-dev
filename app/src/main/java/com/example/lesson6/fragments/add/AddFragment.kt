@@ -1,7 +1,7 @@
 package com.example.lesson6.fragments.add
 
 import android.os.Bundle
-import android.text.TextUtils
+import android.text.Editable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,14 +27,7 @@ class AddFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_add, container, false)
 
-//        mNodeViewModel = ViewModelProvider(this, NodeViewModelFactory()).get(NodeViewModel::class.java)
         mNodeViewModel = ViewModelProvider(this).get(NodeViewModel::class.java)
-//        val myViewModel: MyViewModel = ViewModelProviders.of(
-//            this,
-//            MyViewModelFactory(this.getApplication(), "my awesome param")
-//        ).get(
-//            MyViewModel::class.java
-//        )
 
         view.add_btn.setOnClickListener {
             insertDataToDatabase()
@@ -43,19 +36,31 @@ class AddFragment : Fragment() {
     }
 
     private fun insertDataToDatabase() {
-        val value = editValue.text.toString()
+        val value = editValue.text
+//        var nodes = mutableListOf<Node>()
 
         if (inputCheck(value)) {
-            val node = Node(0, value)
+            val node = Node(0, Integer.parseInt(value.toString()), -1)
             mNodeViewModel.addNode(node)
             Toast.makeText(requireContext(), "Successfully added!", Toast.LENGTH_LONG).show()
             findNavController().navigate(R.id.action_addFragment_to_listFragment)
         } else {
-            Toast.makeText(requireContext(), "Please, fill out all fields.", Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext(), "Please, fill out all fields.", Toast.LENGTH_LONG)
+                .show()
         }
     }
 
-    private fun inputCheck(value: String): Boolean {
-        return !(TextUtils.isEmpty(value))
+    private fun inputCheck(value: Editable): Boolean {
+        return !(value.isEmpty())
+    }
+}
+
+class UpdateFragment : Fragment() {
+
+    fun insertDataToDatabase(node: Node) {
+        var mNodeViewModel: NodeViewModel
+        mNodeViewModel = ViewModelProvider(this)[NodeViewModel::class.java]
+        mNodeViewModel.updateNode(node)
+        Toast.makeText(requireContext(), "Successfully added!", Toast.LENGTH_LONG).show()
     }
 }

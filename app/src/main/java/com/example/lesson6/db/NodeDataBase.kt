@@ -4,10 +4,11 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import com.example.lesson6.model.Node
 
-@Database(entities = [Node::class], version = 1, exportSchema = false)
-//@TypeConverters(Converters::class)
+@Database(entities = [Node::class], version = 2, exportSchema = false)
+@TypeConverters(Converter::class)
 abstract class NodeDataBase : RoomDatabase() {
     abstract fun nodeDao(): NodeDAO
 

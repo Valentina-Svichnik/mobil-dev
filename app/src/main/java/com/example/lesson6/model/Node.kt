@@ -10,12 +10,6 @@ import kotlinx.android.parcel.Parcelize
 @Entity(tableName = "node_table")
 data class Node(
     @PrimaryKey(autoGenerate = true) val id: Int,
-    @ColumnInfo(name = "value") val value: String,
-//    @ColumnInfo(name = "nodes") var nodes: String
-):Parcelable
-
-//data class Node(
-//    @PrimaryKey(autoGenerate = true)
-//    val id: Int,
-//    val value: String
-//)
+    @ColumnInfo(name = "value") val value: Int,
+    @ColumnInfo(name = "nodes") var parent: Int
+) : Parcelable
