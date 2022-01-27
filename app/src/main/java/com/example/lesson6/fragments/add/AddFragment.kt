@@ -55,12 +55,12 @@ class AddFragment : Fragment() {
     }
 }
 
-class UpdateFragment : Fragment() {
-
-    fun insertDataToDatabase(node: Node) {
-        var mNodeViewModel: NodeViewModel
-        mNodeViewModel = ViewModelProvider(this)[NodeViewModel::class.java]
-        mNodeViewModel.updateNode(node)
-        Toast.makeText(requireContext(), "Successfully added!", Toast.LENGTH_LONG).show()
-    }
-}
+//class UpdateFragment : Fragment() {
+//
+//    fun insertDataToDatabase(node: Node) {
+//        var mNodeViewModel: NodeViewModel
+//        mNodeViewModel = ViewModelProvider(this)[NodeViewModel::class.java]
+//        mNodeViewModel.updateNode(node)
+//        Toast.makeText(requireContext(), "Successfully added!", Toast.LENGTH_LONG).show()
+//    }
+//}
