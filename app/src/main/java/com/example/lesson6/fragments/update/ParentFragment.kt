@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -37,7 +36,6 @@ class ParentFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         // NodeViewModel
-        // to do
         mNodeViewModel = ViewModelProvider(this).get(NodeViewModel::class.java)
         mNodeViewModel.readAllData.observe(
             getViewLifecycleOwner(),
@@ -49,7 +47,6 @@ class ParentFragment : Fragment() {
         view.childButton.setOnClickListener {
             adapter.setIsParent(false)
             adapter.setIsChildren(true)
-            // to do
             mNodeViewModel = ViewModelProvider(this).get(NodeViewModel::class.java)
             mNodeViewModel.readAllData.observe(
                 getViewLifecycleOwner(),
@@ -62,7 +59,6 @@ class ParentFragment : Fragment() {
         view.parentButton.setOnClickListener {
             adapter.setIsChildren(false)
             adapter.setIsParent(true)
-            // to do
             mNodeViewModel = ViewModelProvider(this).get(NodeViewModel::class.java)
             mNodeViewModel.readAllData.observe(
                 getViewLifecycleOwner(),
@@ -77,6 +73,4 @@ class ParentFragment : Fragment() {
     fun insertDataToDatabase(node: Node, mNodeViewModel: NodeViewModel) {
         mNodeViewModel.updateNode(node)
     }
-
-    // function
 }

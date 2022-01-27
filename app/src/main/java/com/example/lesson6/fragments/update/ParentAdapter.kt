@@ -1,5 +1,6 @@
 package com.example.lesson6.fragments.update
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -49,12 +50,52 @@ class ParentAdapter(currentNode: Node) : RecyclerView.Adapter<ParentAdapter.MyVi
         }
         holder.itemView.textNode.text = text
 
+        // окрашиваем зависимости в зеленый
+        if (isParent) {
+            if (currentItem.parent == allList.id) {
+                holder.itemView.textNode.setBackgroundColor(Color.GREEN)
+            }
+        }
+        if (isChildren) {
+            if (currentItem.id == allList.parent) {
+                holder.itemView.textNode.setBackgroundColor(Color.GREEN)
+            }
+
+            if (currentItem.parent == allList.id) {
+                holder.itemView.textNode.setBackgroundColor(Color.WHITE)
+            }
+        }
+
         holder.itemView.rowLayout.setOnClickListener {
             if (isParent) {
-                updateItem(currentItem.id, currentItem.value, allList.id)
+                // убираем связь
+                if (currentItem.parent > -1) {
+                    updateItem(currentItem.id, currentItem.value, -1)
+                    holder.itemView.textNode.setBackgroundColor(Color.WHITE)
+                } else {
+                    // добавляем связь
+                    if (allList.parent != currentItem.id) {
+                        updateItem(currentItem.id, currentItem.value, allList.id)
+                        holder.itemView.textNode.setBackgroundColor(Color.GREEN)
+                    } else {
+//                        Toast.makeText(, "Ошибка! Невозможно добавить связь.", Toast.LENGTH_LONG).show()
+                    }
+                }
             }
             if (isChildren) {
-                updateItem(allList.id, allList.value, currentItem.id)
+                // убираем связь
+                if (allList.parent > -1) {
+                    updateItem(allList.id, allList.value, -1)
+                    holder.itemView.textNode.setBackgroundColor(Color.WHITE)
+                } else {
+                    // добавляем связь
+                    if (currentItem.parent != allList.id) {
+                        updateItem(allList.id, allList.value, currentItem.id)
+                        holder.itemView.textNode.setBackgroundColor(Color.GREEN)
+                    } else {
+//                        Toast.makeText(, "Ошибка! Невозможно добавить связь.", Toast.LENGTH_LONG).show()
+                    }
+                }
             }
             isChildren = false
             isParent = false

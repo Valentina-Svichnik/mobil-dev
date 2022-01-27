@@ -32,7 +32,6 @@ class ListFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         // NodeViewModel
-        // to do
         mNodeViewModel = ViewModelProvider(this).get(NodeViewModel::class.java)
         mNodeViewModel.readAllData.observe(
             getViewLifecycleOwner(),
@@ -46,5 +45,4 @@ class ListFragment : Fragment() {
         }
         return view
     }
-    // to do
 }

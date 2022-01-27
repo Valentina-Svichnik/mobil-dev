@@ -15,13 +15,4 @@ interface NodeDAO {
 
     @Update
     suspend fun updateNode(node: Node)
-
-//    @Insert(onConflict = OnConflictStrategy.IGNORE)
-//    suspend fun addNode(node: kotlin.Array<com.example.lesson6.model.Node>)
-//
-//    @Query("SELECT * FROM node_table")
-//    fun readAllData(): MutableList<Node>
-//
-//    @Update
-//    suspend fun updateNode(node: Node)
 }
